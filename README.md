@@ -12,14 +12,16 @@ A QGiS plugin enabling very basic chart visualization for vector layers. Chart a
 ### Choose data
 - Use the Layers menu to pick which layer data you want visuallize
 - Choose the field you want aggregation to be grouped by
-- Choose what data to sum up
+- Choose what data you want to sum up (Numeric fields only)
 
 ### Change visualisation
 - For now display is limited only to bars or pie charts.
 - Display legend bellow chart figure. Chart's objects have basic tool tip showing category's label on hovering above it.
 - For now, bars chart will show summed up numbers for each category while pie charts display precentage of total categories.
-- Advanced styling is accessible when exporting as SVG with the use of CSS ids and classes. Use ids "Chart" or "Legend" for those objects. "Polygons","Labels","InnerLabels" classes are availbale for styling every chart part and "LegendItems" and "LegendLabels" classes for legend elements.
-- Hopefully migration to Qt6 on QGiS new coming V4.0 will open up new options for interactive interface with charts figures
+- Advanced styling using CSS is accessible when exporting as SVG. Use ids "Chart" or "Legend" for those grouped objects. "Polygons","Labels","InnerLabels" classes are availbale for styling every chart element separatly while "LegendItems" and "LegendLabels" classes exist legend items.
+- Change the <filter> on the top of code to aplly filter effects on Chart group object
+- Hopefully migration to Qt6 on QGiS new coming V4.0 will open up new options for advanced svg drawing. This includes inserting CSS and dynamic interaction with elements of the chart in qgis without exporting.
+
 
 
 ## Show your chart
@@ -33,9 +35,7 @@ A QGiS plugin enabling very basic chart visualization for vector layers. Chart a
 
 
 ## Limitations and under the hood explained:
-- Charts calculations are qgis's virtual layer based which makes them quite fast. Virtual layers are constructed with SQL queries. For that reason only data that is part of the source layer can be calculated, meaning Qgs Expressions or virtual fields are not supported.
-- Coloring of the charts can be done by one of two options:
-  -  Based on layer's styling if it's categoriesed.
-     Using layer's categories symobls for painting the chart will only work for fill symbols (patterns, dot and gradients fill included).
-  -  Random assignment of colors derived from project's colors settings. Using project colors limits the number of shown categories to the number of given colors. all other categories will be summed together        to a new 'All others' category.
-- Exporting charts as SVG files will save the svg code to file. Layer's category styling settings are saved as patterns linked for each category representation on charts. 
+- Charts calculations are done using qgis's virtual layers. Virtual layers are constructed with SQL which makes them quite fast. Unfortunately this makes any Qgs Expressions or virtual field invisible, since the virtual layers query the source of the layer directly. For some reason, at the moment, that goes for Temporary layers as well (Memory based). <br>
+- Coloring of the charts derive it's schemes from the layer's category renderer or from project's colors settings. For the moment no more options are available.
+  -  Based on layer's styling if it's categoriesed. Category's symbol will only work for fill symbols (patterns, dot and gradients fill included). For now fill is created using tiles of 60x60 pixels.  Depending on the symbolgy's inner patterns this can sometimes cause a visible unwanted grid shaped pattern.
+  -  Random assignment of colors derived from project's colors settings. Using project colors limits the number of shown categories to the number of given colors. all other categories will be summed together        to a new 'All others' category. Charts are drawn from largest parts to the smallest ones so that colors aren't always assigned to the same categories.
