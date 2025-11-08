@@ -1,7 +1,9 @@
 # CommonChart
 A QGiS plugin enabling very basic chart visualization for vector layers. Chart are opened on seaprate scaleble user panels so that grouping and stacking of various cahrts into a full updated dashboard is easy.
 <br>
+<div>
 <img src="Mapping of development over geology layer, israel 1880-2020.png"></img>
+</div>
 <br>
 ## Easy to start:
 - Press the CommonChart icon to open a new CommonChart pannel
@@ -25,7 +27,7 @@ A QGiS plugin enabling very basic chart visualization for vector layers. Chart a
 (Clicking the arrow by the top left corner) <br>
 <b> Export chart as SVG </b>
 <br>
-<img src="SettingBox.png"></img>
+<img height= "180" src="SettingBox.png"></img>
 
 
 ## Limitations and under the hood explained:
