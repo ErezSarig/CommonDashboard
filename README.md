@@ -28,7 +28,7 @@ A QGiS plugin enabling very basic chart visualization for vector layers. Chart a
 <br>
 <img height= "240" src="SettingBox.png"></img>
 <br>
-<b> Export chart as SVG </b>
+<b> Or export chart as SVG </b>
 
 
 
