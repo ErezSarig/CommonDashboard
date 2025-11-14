@@ -5,10 +5,11 @@ A QGiS plugin enabling very basic chart visualization for vector layers. Chart a
 <img src="Mapping of development over geology layer, israel 1880-2020.png"></img>
 </div>
 <br>
+
 ## Easy to start:
 - Press the CommonChart icon to open a new CommonChart pannel
 - Keep opening as many CommonChart pannels a you like. Pannels can be sorted as a side dock side by side or stocked together with other pannels as tabs
-- 
+
 ### Choose data
 - Use the Layers menu to pick which layer data you want visuallize
 - Choose the field you want aggregation to be grouped by
